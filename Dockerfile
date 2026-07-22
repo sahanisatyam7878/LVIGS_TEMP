@@ -12,10 +12,12 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     libonig-dev \
     libxml2-dev \
+    libpq-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install \
         pdo \
         pdo_mysql \
+        pdo_pgsql \
         mbstring \
         zip \
         exif \
@@ -31,32 +33,27 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 # Working directory
 WORKDIR /var/www/html
 
-# Copy project
+# Copy project files
 COPY . .
 
-# Install dependencies
+# Install Composer dependencies
 RUN composer install \
     --no-dev \
     --prefer-dist \
     --optimize-autoloader \
     --no-interaction
 
-# Create .env if missing
-RUN cp .env.example .env || true
-
-# Laravel cache folders
-RUN mkdir -p storage/framework/cache \
+# Create Laravel required directories
+RUN mkdir -p \
+    storage/framework/cache \
     storage/framework/sessions \
     storage/framework/views \
     storage/logs \
     bootstrap/cache
 
-# Permissions
-RUN chmod -R 775 storage bootstrap/cache
+# Set permissions
 RUN chown -R www-data:www-data storage bootstrap/cache
-
-# Generate APP_KEY
-RUN php artisan key:generate --force || true
+RUN chmod -R 775 storage bootstrap/cache
 
 # Apache Document Root
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
