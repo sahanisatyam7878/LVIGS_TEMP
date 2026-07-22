@@ -1,9 +1,10 @@
-<nav class="navbar navbar-expand-lg site-navbar">
+<nav class="navbar navbar-expand-xl site-navbar">
 
     <div class="container">
 
         <a class="navbar-brand d-flex align-items-center gap-2" href="/">
-            <img class="brand-logo" src="{{ asset('images/lvigs image logo.jpeg') }}" alt="LVIGS MART">
+            <img class="brand-logo" src="{{ asset('images/lvigs image logo.jpeg') }}" alt="LVIGS MART" width="52" height="52">
+            <span class="brand-name">LVIGS MART</span>
         </a>
 
         <button class="navbar-toggler"

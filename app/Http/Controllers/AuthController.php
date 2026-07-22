@@ -58,14 +58,14 @@ class AuthController extends Controller
             ? 'email'
             : 'phone';
 
-        if (!Auth::attempt([
+        if (! Auth::attempt([
             $field => $request->login,
             'password' => $request->password,
         ])) {
 
             return back()
                 ->withErrors([
-                    'login' => 'Invalid Email/Phone or Password.'
+                    'login' => 'Invalid Email/Phone or Password.',
                 ])
                 ->withInput();
         }

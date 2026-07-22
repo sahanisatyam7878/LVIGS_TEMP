@@ -14,6 +14,10 @@
     padding:82px 0 58px;
 }
 
+.investment-page-hero{
+    padding:90px 0 64px;
+}
+
 [data-theme="dark"] .invest-landing-hero{
     background:
         linear-gradient(135deg, #08111f 0%, #0b1728 56%, #071421 100%),
@@ -49,7 +53,7 @@
     color:#fff;
     min-height:450px;
     overflow:hidden;
-    padding:30px;
+    padding:38px;
     position:relative;
 }
 
@@ -69,8 +73,8 @@
     background:rgba(255,255,255,.94);
     border-radius:14px;
     color:#16202f;
-    margin:78px 0 22px;
-    padding:28px;
+    margin:96px 0 26px;
+    padding:32px;
 }
 
 .invest-dashboard-main span,
@@ -105,6 +109,10 @@
     gap:9px;
     min-height:54px;
     padding:12px;
+}
+
+.investment-page-hero + .investment-detail-section{
+    padding-top:72px;
 }
 
 [data-theme="dark"] .hero-section{
@@ -645,7 +653,7 @@
         linear-gradient(180deg, rgba(255,255,255,.92), rgba(245,247,251,.96)),
         radial-gradient(circle at 12% 10%, rgba(15,118,110,.16), transparent 34%),
         radial-gradient(circle at 88% 8%, rgba(37,99,235,.13), transparent 30%);
-    padding:58px 0 88px;
+    padding:46px 0 88px;
 }
 
 [data-theme="dark"] .investment-detail-section{
@@ -660,7 +668,7 @@
     display:grid;
     gap:34px;
     grid-template-columns:minmax(0, 1.08fr) minmax(340px, .92fr);
-    min-height:520px;
+    min-height:auto;
 }
 
 .investment-hero-copy h1{
@@ -744,16 +752,18 @@
 .investment-gallery-image{
     background-color:rgba(255,255,255,.16);
     background-position:center;
-    background-size:cover;
+    background-repeat:no-repeat;
+    background-size:contain;
     border:1px solid rgba(255,255,255,.24);
     border-radius:14px;
     box-shadow:0 20px 54px rgba(15,23,42,.18);
 }
 
 .investment-image-card{
-    aspect-ratio:16 / 11;
-    margin:44px 0 24px;
-    min-height:260px;
+    aspect-ratio:16 / 10;
+    margin:28px 0 24px;
+    max-height:360px;
+    min-height:240px;
 }
 
 .investment-gallery-image{

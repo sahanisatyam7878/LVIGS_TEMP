@@ -186,10 +186,10 @@ class InvestmentController extends Controller
         $content .= "/F1 12 Tf\n0 -34 Td\n";
 
         foreach (array_slice($lines, 1) as $line) {
-            $content .= "(".$this->pdfText($line).") Tj\n0 -22 Td\n";
+            $content .= '('.$this->pdfText($line).") Tj\n0 -22 Td\n";
         }
 
-        $content .= "ET";
+        $content .= 'ET';
 
         $objects = [
             "1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n",

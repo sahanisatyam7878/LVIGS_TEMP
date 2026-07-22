@@ -3,66 +3,74 @@
 @section('title', 'Investment Details')
 
 @push('css')
-<link rel="stylesheet" href="{{ asset('css/home.css') }}">
+<link rel="stylesheet" href="{{ asset('css/home.css') }}?v={{ filemtime(public_path('css/home.css')) }}">
 @endpush
 
 @section('content')
 
-<section class="investment-detail-section">
+<section class="invest-landing-hero investment-page-hero">
     <div class="container">
-        <div class="investment-modern-hero">
-            <div class="investment-hero-copy">
-                <span class="section-kicker">Advanced investment desk</span>
+        <div class="invest-landing-grid">
+            <div class="invest-landing-copy">
+                <span class="section-kicker">Investment opportunity</span>
                 <h1>{{ $settings['hero_title'] }}</h1>
-                <p>{{ $settings['hero_text'] }}</p>
-                <div class="contact-actions">
-                    <a class="btn btn-primary btn-lg" href="{{ route('investment.apply') }}">
+                <p class="hero-text">
+                    {{ $settings['hero_text'] }}
+                </p>
+
+                <div class="hero-actions">
+                    <a class="btn btn-primary btn-lg" href="#investment-plans">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        View Investment Plans
+                    </a>
+                    <a class="btn btn-outline-dark btn-lg" href="{{ route('investment.apply') }}">
                         <i class="bi bi-rocket-takeoff-fill"></i>
-                        Start Investment
+                        Start Now
                     </a>
-                    <a class="btn btn-outline-dark btn-lg" href="mailto:info@lvigsmart.com?subject=Investment%20Details%20for%20LVIGS%20MART">
-                        <i class="bi bi-envelope-fill"></i>
-                        Email Us
-                    </a>
+                </div>
+
+                <div class="trust-row">
+                    <div>
+                        <strong>7</strong>
+                        <span>Investment slabs</span>
+                    </div>
+                    <div>
+                        <strong>10K</strong>
+                        <span>Entry range</span>
+                    </div>
+                    <div>
+                        <strong>1CR</strong>
+                        <span>Top range</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="investment-hero-panel" aria-label="Investment workflow summary">
+            <div class="invest-dashboard" aria-label="LVIGS MART investment overview">
                 <div class="investment-status-pill">
                     <i class="bi bi-shield-check"></i>
-                    Receipt enabled
+                    Secure investor flow
                 </div>
-                @if ($settings['image_path'])
-                    <div class="investment-image-card" style="background-image:url('{{ asset('storage/'.$settings['image_path']) }}')"></div>
-                @else
-                    <div class="investment-amount-card">
-                        <span>Plans from</span>
-                        <strong>Rs. {{ number_format(min(array_column($plans, 'amount')), 0) }}</strong>
-                        <small>For LVIGS MART investment entry</small>
-                    </div>
-                @endif
-                <div class="investment-mini-grid">
-                    <span><i class="bi bi-ui-checks-grid"></i> Plan setup</span>
-                    <span><i class="bi bi-person-vcard"></i> Investor profile</span>
-                    <span><i class="bi bi-receipt-cutoff"></i> PDF receipt</span>
-                    <span><i class="bi bi-headset"></i> Team support</span>
+                <div class="invest-dashboard-main">
+                    <span>Investment range</span>
+                    <strong>Rs. 10K - 1CR</strong>
+                    <small>Choose the slab that matches your growth goal.</small>
+                </div>
+                <div class="invest-dashboard-list">
+                    <span><i class="bi bi-ui-checks-grid"></i> Plan selection</span>
+                    <span><i class="bi bi-person-vcard"></i> Investor details</span>
+                    <span><i class="bi bi-credit-card-2-front"></i> Payment step</span>
+                    <span><i class="bi bi-file-earmark-pdf"></i> PDF receipt</span>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="investment-metrics">
-            <div>
-                <strong>4 step</strong>
-                <span>Apply, review, pay, receive</span>
-            </div>
-            <div>
-                <strong>7 plans</strong>
-                <span>Rs. 10K to Rs. 1 Crore</span>
-            </div>
-            <div>
-                <strong>24 hr</strong>
-                <span>Team follow-up window</span>
-            </div>
+<section class="investment-detail-section" id="investment-plans">
+    <div class="container">
+        <div class="section-heading">
+            <span class="section-kicker">Choose your slab</span>
+            <h2>Investment plans built for every growth stage.</h2>
         </div>
 
         <div class="investment-plan-grid">

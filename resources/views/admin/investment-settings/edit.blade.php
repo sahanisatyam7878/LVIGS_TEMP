@@ -3,7 +3,7 @@
 @section('title', 'Edit Investment')
 
 @push('css')
-<link rel="stylesheet" href="{{ asset('css/home.css') }}">
+<link rel="stylesheet" href="{{ asset('css/home.css') }}?v={{ filemtime(public_path('css/home.css')) }}">
 @endpush
 
 @section('content')
